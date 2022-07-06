@@ -1,0 +1,217 @@
+//Sitio web para realizar los ejercicios https://dartpad.dartlang.org/?id
+
+//01 Hola Mundo
+
+void main(){
+  print('Hola Mundo');
+}
+
+
+//02 Tipos de datos Strings y números
+
+void main(){
+  
+  // Strings
+  //String nombre = 'Tony';
+  //String apellido = 'Stark';
+  
+  //Flexible Var
+  //var nombre = 'Tony';
+  //var apellido = 'Stark';
+  
+  
+  // Como constante aunque en flutter también existen las constantes, no es posible 
+  // cambiar
+  //final String nombre = 'Tony';
+  //final String apellido = 'Stark';
+  
+  
+  //Constante nunca cambia en su tiempo de compilación
+  
+  const nombre = 'Tony';
+  const apellido = 'Stark';
+  
+  
+  //nombre = 'Peter';
+
+  print('$nombre $apellido'); //Template String
+  
+  
+  //Números
+  
+  int empleados = 10;
+  double salario = 1800.25;
+
+  print (empleados);
+  print (salario);
+  
+  
+}
+
+
+//03 Tipo de datos Booleanos y Condicionales
+
+void main(){
+  
+  bool isActive = true;
+  
+  if(!isActive){
+    print('Está activo');
+  }else{
+    print('Esta inactivo');
+  }
+  
+}
+
+void main(){
+  
+  //Null Safety
+  
+  bool? isActive = null; //con ? le indicamos que puede ser null
+  
+  if(isActive == null){
+    print('isActive es null');
+  }else{
+    print('No es null');
+  }
+  
+}
+
+
+//04 Tipo de datos Lista
+
+//List? numeros = [];
+  //List numeros = [1,2,3,4,5,6,7,8,9,10];
+  //numeros.add(11);
+  //print (numeros[0]);
+  
+  
+  //Cómo está en dinamico, podemos tener el problema de meter string es por ello, es
+  //bueno meter el tipo de dato, ya que en este ejemplo meteria también el String
+  
+  /*
+  List numeros = [1,2,3,4,5,6,7,8,9,10];
+  numeros.add('Fernando');
+  print (numeros);
+  
+  */
+  
+  
+  //Así añadimos el tipo a la Lista
+  List<int> numeros = [1,2,3,4,5,6,7,8,9,10];
+  numeros.add(11);
+  print (numeros);
+  
+  
+  //Método estatico de las listas
+  final masNumeros = List.generate(100, (int index) => 10);
+  print (masNumeros);
+
+
+  //05 Tipo de datos Map
+
+  void main() {
+  /*
+  Map persona = {
+    'nombre': 'Fernando',
+    'edad': 35,
+    'soltero': true,
+    true: false,
+    1: 100,
+    2: 500
+  };
+  //print(persona);
+  //print (persona['nombre']);
+  //print (persona[true]);
+  print(persona[2]);
+  
+  */
+  
+  //En los mapa es bueno añadir el tipo de dato
+  /*
+  Map persona = {
+    'nombre': 'Fernando',
+    'edad': 35,
+    'soltero': true,
+    true: false,
+    1: 100,
+    2: 500
+  };
+  
+  persona.addAll({3:'Juan'});
+  
+  print(persona);
+  */
+  
+  //Tipo de datos de variable y valor
+  
+  Map<String, dynamic> persona = {
+    'nombre': 'Fernando',
+    'edad': 35,
+    'soltero': true,
+  };
+  
+  persona.addAll({'segundoNombre':'Juan'});
+  
+  print(persona);
+  
+  
+  
+}
+
+
+// Funciones Dart y uso de required
+
+/*
+void main() {
+  
+  final nombre = 'Fernando';
+  
+  saludar(nombre);
+  }
+
+
+void saludar( String  x){
+  print('Hola $x');
+ 
+ 
+}
+
+
+void main() {
+  
+   final nombre = 'Fernando';
+  saludar();
+  
+  }
+void saludar([String nombre = 'No name']) {
+  print('Hola $nombre');
+
+}
+
+*/
+
+void main() {
+  
+  final nombre = 'Fernando';
+  
+  //saludar(nombre, 'Greetings');
+  
+  //saludar2(mensaje: 'Hi', nombre: nombre);
+  
+  saludar2(nombre: nombre,  mensaje: 'Greetings');
+  
+}
+  
+void saludar(String nombre, [String mensaje = 'Hi']) {
+  print('$mensaje $nombre');
+
+}
+
+
+void saludar2({
+  required String nombre, 
+  required String? mensaje,
+  }) {
+  print('$mensaje $nombre');
+}
