@@ -160,7 +160,7 @@ void main(){
 }
 
 
-// Funciones Dart y uso de required
+//05 Funciones Dart y uso de required
 
 /*
 void main() {
@@ -214,4 +214,101 @@ void saludar2({
   required String? mensaje,
   }) {
   print('$mensaje $nombre');
+}
+
+
+//06 Clases
+
+// 6.1 Ejemplo instanciado
+
+void main() {
+  
+  final wolverine = new Heroe(); //New es opcional (pero recomendado)
+  
+  wolverine.nombre = 'Logan';
+  wolverine.poder = 'Regeneración';
+  
+  print (wolverine);
+  
+}
+
+
+class Heroe {
+  
+  String? nombre;
+  String? poder;
+  
+  @override //es opcional, pero sirve para indicar que queremos sobreescribir esas variables
+  String toString(){
+    return 'Heroe: nombre : ${this.nombre}, poder: ${this.poder}'; //this hace referencia al nombre de la instancia
+    
+  }
+  
+}
+
+//6.2 Ejemplo clase con constructor
+
+
+void main() {
+  
+  final wolverine = new Heroe('Logan', 'Regeneración'); //Hay que pasar los valores
+  
+  print (wolverine);
+  
+}
+
+
+class Heroe {
+  
+  String? nombre;
+  String? poder;
+  
+  /*
+  Heroe(String pNombre, String pPoder){ //Este sería el construcctor de la clase que tiene el mismo nombre que la clase
+    this.nombre = pNombre;
+    this.poder = pPoder;
+  }
+  */
+  
+  Heroe(this.nombre, this.poder); //Forma más rápida de crear el constructor sin necesidad de asignación
+  
+  
+  String toString(){
+    return 'Heroe: nombre : ${this.nombre}, poder: ${this.poder}'; 
+    
+  }
+  
+}
+
+
+//6.3 Ejemplo con la obligación de mandar los datos
+
+void main() {
+  
+  final wolverine = new Heroe(nombre: 'Logan', poder: 'Regeneración'); //Hay que pasar los valores
+  
+  print (wolverine);
+  
+}
+
+
+class Heroe {
+  
+  String nombre;
+  String poder;
+  
+  
+  Heroe({
+    required this.nombre, //con required siempre obligas a mandar los datos
+    required this.poder
+  });
+  
+  
+ 
+  
+  String toString(){
+    return 'Heroe: nombre : ${this.nombre}, poder: ${this.poder}'; 
+    
+  }
+  
 }
