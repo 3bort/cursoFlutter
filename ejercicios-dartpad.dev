@@ -408,3 +408,91 @@ class Cuadrado {
   }
   
 }
+
+//09 Clases abstractas (que no se pueden instanciar)
+
+void main() {
+  //final perro = new Animal(); //Esto no se puede hacer ya que no se puede inicializar
+
+  final perro = new Perro();
+  final gato = new Gato();
+  
+  //perro.emitirSonido();
+  
+  sonidoAnimal(perro);
+  sonidoAnimal(gato);
+}
+
+void sonidoAnimal(Animal animal){
+  
+  animal.emitirSonido();
+  
+}
+
+abstract class Animal {
+  int? patas;
+  void emitirSonido();
+}
+
+
+class Perro implements Animal {
+  
+  int? patas;
+  
+  void emitirSonido(){
+    print ('Guauuuuu');
+  }
+  
+}
+
+class Gato implements Animal{
+  int? patas;
+  int? cola;
+  
+  void emitirSonido(){
+    print('Miauuuu');
+  }
+}
+
+//10 Extends
+
+void main() {
+  
+  final superman = new Heroe ('Clark Kent');
+  
+  final luthor = new Villano ('Lex Luthor');
+  
+  print (superman);
+  print (luthor);
+  
+}
+
+abstract class Personaje {
+  String? poder;
+  String nombre;
+
+  Personaje(this.nombre);
+
+  @override
+  String toString() {
+    return '$nombre - $poder';
+  }
+}
+
+
+class Heroe extends Personaje{
+  
+  int valentia = 100;
+  
+  Heroe(String nombre) : super(nombre); //super llama al constructor de la clase que extiende
+}
+
+
+class Villano extends Personaje{
+  
+  int maldad = 50;
+  
+  Villano (String nombre):super (nombre);
+}
+
+//11 Mixins
