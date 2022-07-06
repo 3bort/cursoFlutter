@@ -312,3 +312,99 @@ class Heroe {
   }
   
 }
+
+//07 Constructores con Nombre
+
+void main() {
+  final rawJson = {'nombre': 'Tony Stark', 'poder': 'Dinero'};
+
+  //final ironman = new Heroe(nombre: rawJson['nombre']!, poder: rawJson['poder']!);
+  //print(ironman);
+
+  /*
+  
+  final wolverine = new Heroe(
+      nombre: 'Logan', poder: 'Regeneración'); //Hay que pasar los valores
+
+  print(wolverine); */
+
+  final ironman = new Heroe.fromJson(rawJson);
+
+  print(ironman);
+}
+
+class Heroe {
+  //String? nombre; //con interrogante es opcional 
+  //String? poder;
+  
+  String nombre; //con interrogante es opcional 
+  String poder;
+
+  Heroe(
+      {required this.nombre, //con required siempre obligas a mandar los datos
+      required this.poder});
+
+  Heroe.fromJson(Map<String, String> json) : 
+    this.nombre = json['nombre']!,
+    this.poder = json['poder'] ?? 'No tiene poder'; //Para evitar si poder no lo envias desde la funcion rawJson
+    
+  
+
+  String toString() {
+    return 'Heroe: nombre : ${this.nombre}, poder: ${this.poder}';
+  }
+}
+
+
+//08 Getters y Setters
+
+import 'dart:math' as math;
+
+void main() {
+  final cuadrado = new Cuadrado(5);
+  
+  
+  cuadrado.area = 25; //aquí asignamos el 20 al valor del cuadrado
+  
+  //print ('area: ${cuadrado.lado * cuadrado.lado}');
+  print ('area: ${cuadrado.calcularArea()}');
+  
+  print ('lado: ${cuadrado.lado}');
+  
+  print ('area get: ${cuadrado.area}'); //aquí llamamos al getter
+  
+  
+  
+}
+
+
+class Cuadrado {
+  
+  double lado = 0; // lado  * lado  
+  
+  double get area {
+    return this.lado * this.lado; //los getter no pueden recibir argumentos
+  }
+  
+  
+  /*
+  set area(double valor){
+    print('set: $valor');
+  }
+  */
+  
+  set area(double valor){
+    this.lado = math.sqrt(valor); //Gracias al import de math tenemos sqrt para raiz
+  }
+  
+  
+  Cuadrado (double lado):
+  this.lado = lado;
+  
+  //Cuadrado (this.lado); //constructor de forma diferente
+  
+  double calcularArea(){
+    return this.lado * this.lado;  //Metodo para hacerlo de otra forma
+  }
+  
+}
