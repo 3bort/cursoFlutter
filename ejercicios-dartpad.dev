@@ -496,3 +496,124 @@ class Villano extends Personaje{
 }
 
 //11 Mixins
+
+
+abstract class Animal {}
+
+abstract class Mamifero extends Animal {}
+
+abstract class Ave extends Animal {}
+
+abstract class Pez extends Animal {}
+
+abstract class Volador {
+  void volar() => print('estoy volando');
+}
+
+abstract class Caminante {
+  void caminar() => print('estoy caminando');
+}
+
+abstract class Nadador {
+  void nadar() => print('estoy nadando');
+}
+
+class Delfin extends Mamifero with Nadador {}
+
+class Murcielago extends Mamifero with Caminante, Volador {}
+
+class Gato extends Mamifero with Caminante {}
+
+class Paloma extends Ave with Caminante, Volador {}
+
+class Pato extends Ave with Caminante, Volador, Nadador {}
+
+class Tiburon extends Pez with Nadador {}
+
+class PezVolador extends Pez with Nadador, Volador {}
+
+void main() {
+  final flipper = new Delfin();
+
+  flipper.nadar();
+
+  final batman = new Murcielago();
+
+  batman.caminar();
+  batman.volar();
+
+  final garfield = new Gato();
+
+  garfield.caminar();
+
+  final poppy = new Paloma();
+  poppy.volar();
+  poppy.caminar();
+
+  final patitoFeo = new Pato();
+
+  patitoFeo.caminar();
+  patitoFeo.volar();
+  patitoFeo.nadar();
+
+  final shark = new Tiburon();
+  shark.nadar();
+
+  final carpa = new PezVolador();
+  carpa.nadar();
+  carpa.volar();
+}
+
+//12 Future
+
+void main() {
+  print('Antes de la petición');
+
+  httpGet('https://api.nasa.com/aliens').then((data) {
+    print(data.toUpperCase());
+  });
+
+  print('Fin del programa');
+}
+
+Future<String> httpGet(String url) {
+  return Future.delayed(Duration(seconds: 3), () {
+    return 'Hola Mundo - 3 segundos';
+  });
+}
+
+
+//Async - Await
+
+
+void main() async {
+  print('Antes de la petición');
+
+  
+  final data = await httpGet('https://api.nasa.com/aliens');
+  
+  print(data);
+  
+  
+
+  //print(getNombre('10')); // Imprime(Instance of '_Future<String>')
+
+  //final nombre = await getNombre('10');
+  //print(nombre);
+
+  //getNombre('10').then(print); //Aquí de forma asincrona sin el async en el main
+  
+  
+
+  print('Fin del programa');
+}
+
+Future<String> getNombre(String id) async {
+  return '$id - Emilio';
+}
+
+Future<String> httpGet(String url) {
+  return Future.delayed(Duration(seconds: 3), () {
+    return 'Hola Mundo - 3 segundos';
+  });
+}
