@@ -28,14 +28,26 @@ class _CounterScreenState extends State<CounterScreen> {
           ],
         ),
       ),
-      //floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          counter++;
-          setState(
-              () {}); //Función anonima para hacer funcionar el statefulwidget, siempre pide dentro una función {}
-        },
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          FloatingActionButton(
+            child: const Icon(Icons.exposure_plus_1_outlined),
+            onPressed: () =>
+                setState(() => counter++), // Forma optimizada del botón escrita
+          ),
+          //const SizedBox(width: 10), separación entre botones usando center en mainAxisAlignment
+          FloatingActionButton(
+            child: const Icon(Icons.restart_alt_rounded),
+            onPressed: () => setState(() => counter = 0),
+          ),
+          //const SizedBox(width: 10),
+          FloatingActionButton(
+            child: const Icon(Icons.exposure_minus_1_outlined),
+            onPressed: () => setState(() => counter--),
+          ),
+        ],
       ),
     );
   }
