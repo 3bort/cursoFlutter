@@ -17,7 +17,7 @@ class Listview1Screen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ...options
+          ...options // "... extrae los elementosde esa lista"
               .map((game) => ListTile(
                     title: Text(game),
                     trailing: const Icon(Icons.arrow_forward_ios_outlined),
