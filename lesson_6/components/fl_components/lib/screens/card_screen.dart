@@ -1,4 +1,5 @@
-import 'package:fl_components/theme/app_theme.dart';
+
+import 'package:fl_components/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class CardScreen extends StatelessWidget {
@@ -13,22 +14,21 @@ class CardScreen extends StatelessWidget {
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        children:  [
-          Card(
-            child: Column(
-              children: const [
-                ListTile(
-                  leading:  Icon(Icons.photo_album_outlined, color: AppTheme.primary),
-                  title: Text('Soy un título'),
-                  subtitle: Text('Esto es un texto de relleno para la tarjeta'),
-                )
-            ]),
-          )
-
-
+        children:  const [
+          CustomCardType1(),
+          SizedBox(height: 10),
+          CustomCardType2(),
+          SizedBox(height: 10),
+          CustomCardType2(),
+          SizedBox(height: 10),
+          CustomCardType2(),
+          SizedBox(height: 100),
+          
         ],
 
       ),
     );
   }
 }
+
+
