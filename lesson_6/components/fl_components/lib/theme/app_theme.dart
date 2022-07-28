@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class AppTheme {
@@ -7,32 +9,33 @@ class AppTheme {
       primaryColor: Colors.indigo,
 
       //Appbar Theme
-      appBarTheme: const AppBarTheme(
-        color: primary, 
-        elevation: 0
-        ),
+      appBarTheme: const AppBarTheme(color: primary, elevation: 0),
 
-        // TextButton
+      // TextButton
 
-        textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(primary: primary),
-        )
-    );
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(primary: primary),
+      ),
 
-    static final ThemeData darkTheme = ThemeData.dark().copyWith(
+      //Floating action button
+
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        backgroundColor: primary,
+        elevation: 5,
+      ),
+
+      //Elevating Button
+
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+            primary: Colors.indigo, shape: const StadiumBorder(), elevation: 0),
+      ));
+
+  static final ThemeData darkTheme = ThemeData.dark().copyWith(
       //Color primario
       primaryColor: Colors.indigo,
 
       //Appbar Theme
-      appBarTheme: const AppBarTheme(
-        color: primary, 
-        elevation: 0
-        ),
-
-        scaffoldBackgroundColor: Colors.black
-    );
-
-    
-
-
+      appBarTheme: const AppBarTheme(color: primary, elevation: 0),
+      scaffoldBackgroundColor: Colors.black);
 }
