@@ -17,11 +17,11 @@ class CardScreen extends StatelessWidget {
         children:  const [
           CustomCardType1(),
           SizedBox(height: 10),
-          CustomCardType2(),
-          SizedBox(height: 10),
-          CustomCardType2(),
-          SizedBox(height: 10),
-          CustomCardType2(),
+          CustomCardType2( imageUrl: 'https://img.freepik.com/premium-vector/meadows-landscape-with-mountains-hill_104785-943.jpg?w=2000'),
+          SizedBox(height: 20),
+          CustomCardType2(imageUrl: 'https://img.freepik.com/free-vector/nature-scene-with-river-hills-forest-mountain-landscape-flat-cartoon-style-illustration_1150-37326.jpg?w=2000',),
+          SizedBox(height: 20),
+          CustomCardType2(name: 'Un bonito paisaje', imageUrl: 'https://img.freepik.com/free-vector/peaceful-hill-forest-tree-mountains-rock-beautiful-landscape-outdoors-adventure-green-silhouette-illustration_1150-39395.jpg?w=2000',),
           SizedBox(height: 100),
           
         ],
