@@ -45,9 +45,15 @@ class AppRoutes {
 
     MenuOption(
       route: 'animated',
-      name: 'Animated Conteiner',
+      name: 'Animated Container',
       screen: const AnimatedScreen(),
       icon: Icons.animation,
+    ),
+    MenuOption(
+      route: 'input',
+      name: 'Input Screen',
+      screen: const InputScreen(),
+      icon: Icons.text_fields,
     ),
 
   ];
