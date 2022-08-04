@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class MovieSlider extends StatelessWidget {
@@ -5,10 +7,9 @@ class MovieSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 250,
-      color: Colors.red,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -19,6 +20,7 @@ class MovieSlider extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
+          const SizedBox(height: 5),
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -40,8 +42,31 @@ class _MoviePoster extends StatelessWidget {
     return Container(
       width: 130,
       height: 190,
-      color: Colors.green,
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          GestureDetector(
+            onTap: ()=> Navigator.pushNamed(context, 'details', arguments: 'movie-instance'),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: const FadeInImage(
+                placeholder: AssetImage('assets/no-image.jpg') , 
+                image: NetworkImage('https://via.placeholder.com/300x400'),
+                width: 130,
+                height: 180,
+                fit: BoxFit.cover,
+                ),
+            ),
+          ),
+
+            const SizedBox(height: 5),
+            const Text('Starwars: El retorno del Jedi que está buscando algo en la galaxia', 
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            )
+        ],
+      ),
     );
   }
 }
